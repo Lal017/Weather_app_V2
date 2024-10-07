@@ -1,0 +1,71 @@
+:root {
+  --gray: #6C6A61;
+  --ivory: #EDE4E3;
+  --cool-gray: #6C6A61;
+  --pewter: #C0C0C0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+}
+
+/* Header styling */
+/* ------------------------------------------- */
+header {
+  position: relative;
+  height: 15vh;
+  background-color: var(--gray);
+}
+.title {
+  position: absolute;
+  left: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-bar {
+  position: absolute;
+  left: 20vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input {
+  width: 70vw;
+  height: 3vh;
+  text-align: center;
+  outline: none;
+}
+
+.magnifying-glass {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+button {
+  background-color: white;
+  height: 3.5vh;
+  width: 3vw;
+}
+
+/* Main Styling */
+/* ---------------------------------------- */
+
+.side-panel {
+  background-color: var(--pewter);
+  width: 20vw;
+  height: 85vh;
+}
+
+.panel {
+  background-color: var(--cool-gray);
+  width: 20vw;
+  height: 20vh;
+}
