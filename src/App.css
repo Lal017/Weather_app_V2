@@ -55,6 +55,10 @@ button {
   width: 3vw;
 }
 
+option {
+  background-color: white;
+}
+
 /* Main Styling */
 /* ---------------------------------------- */
 

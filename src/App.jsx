@@ -1,7 +1,8 @@
-import './App.css'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react';
+import './App.css';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
+import FileRead from './FileRead';
 
 // Holds all the cities added to the side panel
 const side_arr = [];
@@ -31,24 +32,23 @@ const Header = () =>
             <h1>Weather App</h1>
           </div>
           <div class = 'search-bar'>
-            <input type = "text" placeholder='search' onChange={get_value}></input>
+            <input type = "text" placeholder='search' onChange={get_value} list='search-bar'></input>
+            <datalist id='search-bar'>
+              {FileRead().map((city, index) => (<option value={city} key={index}/>))}
+            </datalist>
             <div class = "magnifying-glass">
               <button onClick={add_city}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
             </div>
           </div>
       </header>
     </>
-  )
+  );
 }
 
 // Main Component
 // ----------------------------------------------------------------------
 const Main = () =>
 {
-/*   const arr_map = side_arr.map((item) =>
-    <div class = "panel" key={side_arr.length}>{item}</div>
-  ) */
-
   return (
     <>
     <div class = "side-panel">
