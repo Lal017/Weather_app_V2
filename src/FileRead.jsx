@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+// Returns an array with city names in each element
 const FileRead = () =>
 {
     const [fileText, setFileText] = useState('');
@@ -29,6 +30,6 @@ const FileRead = () =>
     const textArray = fileText.split('\n');
 
     return textArray;
-};
+}; 
 
 export default FileRead;

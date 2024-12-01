@@ -56,19 +56,29 @@ button {
 }
 
 option {
-  background-color: white;
+  background-color: white  ;
 }
 
 /* Main Styling */
 /* ---------------------------------------- */
 
-.side-panel {
+.side-bar {
   background-color: var(--pewter);
   width: 20vw;
   height: 85vh;
 }
 
-.panel {
+.side-panel {
+  background-color: black;
+  width: 20vw;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+}
+
+.main-section {
   background-color: var(--cool-gray);
   width: 20vw;
   height: 20vh;

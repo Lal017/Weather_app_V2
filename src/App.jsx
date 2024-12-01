@@ -1,28 +1,26 @@
 import './App.css';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import FileRead from './FileRead';
-
-// Holds all the cities added to the side panel
-const side_arr = [];
 
 // Header component
 // --------------------------------------------------------------------
-const Header = () =>
+const Header = ({side_arr, set_arr}) =>
 {
-  let city_val;
+  const [city_val, set_val] = useState('');
+
   // Get value from input
   const get_value = (val) =>
   {
-    city_val = val.target.value;
+    set_val(val.target.value);
   }
 
   // Add city to side array
   const add_city = () =>
   {
-    side_arr.push(city_val);
-    console.log(side_arr);
+    if(!side_arr.includes(city_val))                          // if city is not already in array
+      set_arr((prev_city) => [...prev_city, city_val]);       // update array with new array with added value
   }
 
   return (
@@ -47,13 +45,14 @@ const Header = () =>
 
 // Main Component
 // ----------------------------------------------------------------------
-const Main = () =>
+const Main = ({side_arr}) =>
 {
   return (
     <>
-    <div class = "side-panel">
+    <div class = "side-bar">
+      {side_arr.map((item, index) => ( <h2 key = {index} class = "side-panel">{item}</h2> ))}
     </div>
-    <div class = "main-panel">
+    <div class = "main-section">
     </div>
     </>
   )
@@ -62,10 +61,12 @@ const Main = () =>
 // returns all components above to display in the application
 // ----------------------------------------------------------------------
 function App() {
+  const [side_arr, set_arr] = useState([]);                 // array that holds every new city added by user
+
   return (
     <>
-    <Header/>
-    <Main/>
+    <Header side_arr = {side_arr} set_arr = {set_arr}/>
+    <Main side_arr = {side_arr}/>
     </>
   )
 }
