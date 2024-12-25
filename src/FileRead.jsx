@@ -24,7 +24,7 @@ const FileRead = () =>
             };
 
             FetchContent();                                         // call fetch function
-        }, []                                                       // empty array means it runs once
+        }, []                                                       // empty array = runs once
     );
 
     const textArray = fileText.split('\n');
