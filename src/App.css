@@ -124,6 +124,10 @@ option {
   border-radius: 2rem;
 }
 
+.weather-box {
+  color: black;
+}
+
 .city-panel {
   background-color: white;
   height: 40vh;

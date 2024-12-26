@@ -4,17 +4,25 @@ import Side from './side.jsx';
 import Body from './body.jsx';
 import React, { useState } from 'react';
 
-// returns all components above to display in the application
-// ----------------------------------------------------------------------
 function App() {
-  const [side_arr, set_arr] = useState([]);                 // array that holds every new city added by user
+  const [city_arr, set_arr] = useState([]);                 // array of objects that holds every new city added by user
+
+  /* Reset all visible values in array to false */
+  const reset = () =>
+  {
+    var length = city_arr.length;
+    for(let i = 0; i < length; i++)
+    {
+        city_arr[i].visible = false;
+    }
+  }
 
   return (
     <>
-    <Header side_arr = {side_arr} set_arr = {set_arr}/>
+    <Header set_arr = {set_arr} reset = {reset}/>
     <div className="main-container">
-      <Side side_arr = {side_arr}/>
-      <Body side_arr = {side_arr}/>
+      <Side city_arr = {city_arr} reset = {reset}/>
+      <Body city_arr = {city_arr}/>
     </div>
     </>
   )
