@@ -1,14 +1,14 @@
 // Side Component
 // ----------------------------------------------------------------------
-const Side = ({city_arr, reset}) =>
+const Side = ({city_arr}) =>
 {
 
     return (
     <>
     <div className = "side-bar">
         {city_arr.map((item, index) => (
-            <div onClick={item.switch}>
-                <h2 key = {index} className = "side-panel">{item.city}</h2>
+            <div key = {index}>
+                <h2 className = "side-panel">{item.city}</h2>
             </div>
         ))}
     </div>

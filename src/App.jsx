@@ -10,18 +10,14 @@ function App() {
   /* Reset all visible values in array to false */
   const reset = () =>
   {
-    var length = city_arr.length;
-    for(let i = 0; i < length; i++)
-    {
-        city_arr[i].visible = false;
-    }
+    set_arr((prev) => prev.map((item) => ({...item, visible: false})));
   }
 
   return (
     <>
     <Header set_arr = {set_arr} reset = {reset}/>
     <div className="main-container">
-      <Side city_arr = {city_arr} reset = {reset}/>
+      <Side city_arr = {city_arr}/>
       <Body city_arr = {city_arr}/>
     </div>
     </>

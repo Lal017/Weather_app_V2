@@ -1,13 +1,14 @@
 :root {
-  --header: #151515;
-  --panel: #2a2a2a;
-  --side: #3f3f3f;
-  --body: #575757;
+  --Main: rgb(6,71,137);
+  --Accent_1: rgba(66,122,161,0.1);
+  --Accent_2: rgba(235,242,250,0.1);
+  --Shadow: rgba(0,0,0,0.1);
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
 header {
   position: relative;
   height: 15vh;
-  background-color: var(--header);
+  background-color: var(--Main);
 }
 .title {
   position: absolute;
@@ -67,19 +68,20 @@ option {
 /* ---------------------------------------- */
 
 .side-bar {
-  background-color: var(--side);
+  background-color: var(--Main);
   width: 20vw;
-  height: 85vh;
+  height: 100vh;
 }
 
 .side-panel {
-  background-color: var(--panel);
+  background-color: var(--Accent_1);
   width: 20vw;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 2rem;
+  box-shadow: 0 2px 5px var(--Shadow);
   transition: 500ms;
 }
 
@@ -90,26 +92,36 @@ option {
 
 /* Body Styling */
 /* ------------------------------------- */
+img {
+  width: 5rem;
+}
+
+.sub-title {
+  font-size: x-large;
+  padding: 1rem;
+}
 
 .main-section {
   position: relative;
-  background-color: var(--body);
+  background-color: var(--Main);
   width: 80vw;
-  height: 85vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .main-panel {
-  background-color: var(--panel);
-  height: 80vh;
+  background-color: var(--Accent_1);
+  min-height: 90vh;
   width: 75vw;
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  box-shadow: 0 2px 5px var(--Shadow);
+  position: relative;
 }
 
 .city-title {
@@ -117,20 +129,50 @@ option {
   font-size: xx-large;
 }
 
+.weather-title {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  padding-left: 2rem;
+  padding-top: 1rem;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
 .weather-panel {
-  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-top: 1rem;
+  background-color: var(--Accent_2);
   height: 15vh;
   width: 65vw;
   border-radius: 2rem;
 }
 
+.weather-title .weather-box {
+  gap: 0.1rem;
+  text-align: left;
+}
+
 .weather-box {
-  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
 }
 
 .city-panel {
-  background-color: white;
-  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--Accent_2);
+  min-height: 30vh;
   width: 65vw;
   border-radius: 2rem;
+  margin: 1rem;
 }
