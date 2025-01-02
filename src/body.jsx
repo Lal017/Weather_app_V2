@@ -4,7 +4,11 @@ const Body = ({city_arr}) =>
         <>
             <div className="main-section">
                 {city_arr.map((item, index) => (
-                    <div className="main-panel" key={index} style={{ display: item.visible ? 'flex' : 'none' }}>
+                    item.visible ? (
+                        item.is_err ? (
+                            <div className="error-message">Error, invalid input. Please try again</div>
+                        ) : (
+                            <div className="main-panel" key={index} style={{ display: item.visible ? 'flex' : 'none' }}>
                         <div className="weather-title">
                             <img src={`https://openweathermap.org/img/wn/${item.icon}@2x.png`} alt="Icon"/>
                             <div className="title-box">
@@ -56,7 +60,9 @@ const Body = ({city_arr}) =>
                                 <p>Timezone: {item.timezone}</p>
                             </div>
                         </div>
-                    </div>
+                            </div>
+                        )
+                    ) : null
                 ))}
             </div>
         </>

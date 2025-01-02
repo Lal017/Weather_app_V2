@@ -19,6 +19,13 @@ body {
   display: flex;
 }
 
+.error-message {
+  text-align: center;
+  height: 10vh;
+  width: 50vw;
+  font-size: xx-large;
+}
+
 /* Header styling */
 /* ------------------------------------------- */
 header {
