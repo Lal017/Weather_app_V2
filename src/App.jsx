@@ -25,7 +25,7 @@ function App() {
     <>
     <Header set_arr = {set_arr} switch_vis = {switch_vis}/>
     <div className="main-container">
-      <Side switch_vis = {switch_vis} city_arr = {city_arr}/>
+      <Side switch_vis = {switch_vis} city_arr = {city_arr} set_arr = {set_arr}/>
       <Body city_arr = {city_arr}/>
     </div>
     </>

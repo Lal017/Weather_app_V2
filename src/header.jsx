@@ -27,10 +27,10 @@ const City = class {
         this.visible = false;
         this.set_arr = set_arr;
         this.is_err;
-        this.load_data();
+        this.load_data(city);
     }
     // API call
-    async load_data()
+    async load_data(city)
     {
         const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${import.meta.env.VITE_API_KEY}&units=imperial`;
         
@@ -47,6 +47,7 @@ const City = class {
                     this.description = data.weather[0].description;
                     this.icon = data.weather[0].icon;
 
+                    this.city = data.name;
                     this.temp = data.main.temp;
                     this.feel = data.main.feels_like;
                     this.temp_min = data.main.temp_min;
@@ -94,14 +95,16 @@ const Header = ({set_arr, switch_vis}) =>
     // Checks if city is already in hash and adds city  
     const add_new_city = async () =>
     {
-    if(!city_hash[city_val])                                                    // if city is not already in hash
-        set_hash((prev_hash) => ({...prev_hash, [city_val] : true }));          // update hash with new hash with added value
+        if(!city_hash[city_val])
+        {                                                    // if city is not already in hash
+            set_hash((prev_hash) => ({...prev_hash, [city_val] : true }));          // update hash with new hash with added value
 
-        const new_city = new City(city_val, set_arr);
-        set_arr((prev_arr) => [...prev_arr, new_city]);                         // update array with new array with added object
-        
-        await new_city.load_data();
-        switch_vis(new_city);
+            const new_city = new City(city_val, set_arr);
+            set_arr((prev_arr) => [...prev_arr, new_city]);                         // update array with new array with added object
+            
+            await new_city.load_data();
+            switch_vis(new_city);
+        }
     }
 
     return (
