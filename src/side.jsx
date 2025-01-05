@@ -6,8 +6,16 @@ const Side = ({switch_vis, city_arr, set_arr}) =>
 {
     const close = (delete_item) =>
     {
-        set_arr((prev) => prev.filter(item => item.city !== delete_item.city))
-    }
+        var is_vis = false;
+        if(delete_item.visible) { is_vis = true; }
+        set_arr((prev) => {
+            const updatedArray = prev.filter((item) => item.city !== delete_item.city);
+        if(is_vis && updatedArray.length > 0)
+            { switch_vis(city_arr[0]); }
+        return updatedArray;
+        });
+    };
+
     return (
     <>
     <div className = "side-bar">

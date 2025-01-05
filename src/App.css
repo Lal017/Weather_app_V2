@@ -94,6 +94,7 @@ option {
 }
 
 .side-panel:hover {
+  cursor: pointer;
   height: 15vh;
   transition: 500ms;
 }
@@ -112,14 +113,14 @@ option {
 }
 
 .delete-button:hover {
-  height: 5vh;
-  width: 5vh;
+  height: 4vh;
+  width: 4vh;
   transition: 500ms;
 }
 
 #x-icon:hover {
-  height: 5vh;
-  width: 5vh;
+  height: 4vh;
+  width: 4vh;
   transition: 250ms;
 }
 

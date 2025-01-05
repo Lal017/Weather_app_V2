@@ -84,9 +84,8 @@ const City = class {
 
 // Header component
 // --------------------------------------------------------------------
-const Header = ({set_arr, switch_vis}) =>
+const Header = ({set_arr, switch_vis, city_arr}) =>
 {
-    const [city_hash, set_hash] = useState({});                             // Hashmap to prevent duplicate cities from being added to array
     const [city_val, set_val] = useState('');                               // used to retreive input
 
     // Get value from input
@@ -95,10 +94,10 @@ const Header = ({set_arr, switch_vis}) =>
     // Checks if city is already in hash and adds city  
     const add_new_city = async () =>
     {
-        if(!city_hash[city_val])
+        var check_city = city_val.split(',');
+        if(!city_arr.some(item => item.city.toLowerCase() === check_city[0].toLowerCase()))
         {                                                    // if city is not already in hash
-            set_hash((prev_hash) => ({...prev_hash, [city_val] : true }));          // update hash with new hash with added value
-
+            set_val('');
             const new_city = new City(city_val, set_arr);
             set_arr((prev_arr) => [...prev_arr, new_city]);                         // update array with new array with added object
             
@@ -114,7 +113,7 @@ const Header = ({set_arr, switch_vis}) =>
             <h1>Weather App</h1>
             </div>
             <div className = 'search-bar'>
-                <input type = "text" placeholder='search' onChange={get_value}></input>
+                <input type = "text" value={city_val} placeholder='search' onChange={get_value}></input>
                 <div className = "magnifying-glass">
                     <button onClick={add_new_city}><FontAwesomeIcon icon={faMagnifyingGlass}/>
                     </button>
