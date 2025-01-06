@@ -1,5 +1,6 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 
 /* City class and functions
@@ -65,6 +66,7 @@ const City = class {
                     this.sunset = data.sys.sunset;
                     this.timezone = data.timezone;
                     this.country = data.sys.country;
+                    this.state = data.sys.state;
                     this.is_err = false;
                 }
 
@@ -110,7 +112,8 @@ const Header = ({set_arr, switch_vis, city_arr}) =>
     <>
         <header>
             <div className = 'title'>
-            <h1>Weather App</h1>
+                <FontAwesomeIcon icon={faCloudSun} className='CloudSun-icon'/>
+                <h1>Weather App</h1>
             </div>
             <div className = 'search-bar'>
                 <input type = "text" value={city_val} placeholder='search' onChange={get_value}></input>

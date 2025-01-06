@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 :root {
   --Main: rgb(6,71,137);
   --Accent_1: rgba(66,122,161,0.1);
@@ -28,12 +30,22 @@ body {
 
 /* Header styling */
 /* ------------------------------------------- */
+h1 {
+  font-family: "Pacifico", serif;
+}
+
 header {
   position: relative;
   height: 15vh;
   background-color: var(--Main);
 }
+
+.CloudSun-icon {
+  height: 4rem;
+  width: 4rem;
+}
 .title {
+  display: flex;
   position: absolute;
   left: 5vw;
   top: 50%;
@@ -76,6 +88,7 @@ option {
 
 .side-bar {
   background-color: var(--Main);
+  border-top: 1px solid white;
   width: 20vw;
   height: 100vh;
 }
@@ -138,6 +151,7 @@ img {
 .main-section {
   position: relative;
   background-color: var(--Main);
+  border-top: 1px solid white;
   width: 80vw;
   height: 100vh;
   display: flex;
@@ -193,15 +207,17 @@ img {
   text-align: left;
 }
 
-.weather-box {
+.box {
   display: flex;
   flex-direction: column;
+  width: 33%;
   gap: 0.5rem;
   text-align: center;
 }
 
 .city-panel {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--Accent_2);
@@ -209,4 +225,10 @@ img {
   width: 65vw;
   border-radius: 2rem;
   margin: 1rem;
+}
+
+.box hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
