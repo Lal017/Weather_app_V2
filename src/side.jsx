@@ -25,7 +25,7 @@ const Side = ({switch_vis, city_arr, set_arr}) =>
                     <div className="delete-button" onClick={() => close(item)}>
                         <FontAwesomeIcon icon={faCircleXmark} id="x-icon"></FontAwesomeIcon>
                     </div>
-                    <h2>{item.city}</h2>
+                    <h3>{item.city}</h3>
                 </div>
             </div>
         ))}
